@@ -51,6 +51,239 @@
   <p>minttboy</p> <!--instagram-->
 </div>
 
+<style>
+
+body {
+  font-family: "play";
+}
+
+.header {
+  width: 100%;
+  position: fixed;
+  top: 12px;
+  left: 8px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: start;
+  animation: linksPosition linear forwards;
+  animation-timeline: scroll(root block);
+  animation-range: 0% 10%;
+}
+
+@keyframes linksPosition {
+  to {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    text-align: center;
+    flex: 1;
+    rotate: 0;
+    top: 8px;
+  }
+}
+
+.circulito {
+  background: lightgreen;
+  width: 300px;
+  height: 300px;
+  border-radius: 300px;
+  position: fixed;
+  top: -50px;
+  left: -50px;
+  z-index: 1;
+  animation: position linear forwards;
+  animation-timeline: scroll(root block);
+  animation-range: 0% 10%;
+}
+
+@keyframes position {
+  to {
+    border-radius: 0;
+    width: 120vw;
+    height: 100px;
+    position: fixed;
+  }
+}
+
+.sketchbooksHeader,.minttboyHeader,.contactHeader {
+  z-index: 2;
+  font-size: 50px;
+  rotate: 3deg;
+  animation: linksAngle linear forwards;
+  animation-timeline: scroll(root block);
+  animation-range: 0% 10%;
+}
+
+@keyframes linksAngle {
+  to {
+    rotate: 0deg;
+    font-size: 26px;
+  }
+}
+
+@media (width > 800px) {
+.header:not(.is-scrolled) .sketchbooksHeader:hover,
+.header:not(.is-scrolled) .minttboyHeader:hover,
+.header:not(.is-scrolled) .contactHeader:hover {
+  width: fit-content;
+  color: white;
+  background: red;
+  rotate: 1deg;
+  font-size: 72px;
+  cursor: pointer;
+}
+
+.header.is-scrolled .sketchbooksHeader:hover,
+.header.is-scrolled .minttboyHeader:hover,
+.header.is-scrolled .contactHeader:hover {
+  width: 100%;
+  color: white;
+  background: red;
+  rotate: 1deg;
+  font-size: 56px;
+  cursor: pointer;
+}
+}
+
+@media (width < 800px) {
+  .header {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    text-align: center;
+    flex: 1;
+    rotate: 0;
+    top: 8px;
+  }
+  .circulito {
+    border-radius: 0;
+    width: 120vw;
+    height: 100px;
+    position: fixed;
+  }
+  .sketchbooksHeader,.minttboyHeader,.contactHeader {
+    rotate: 0deg;
+    font-size: 26px;
+  }
+  .sketchbooksHeader:hover,
+  .minttboyHeader:hover,
+  .contactHeader:hover {
+  width: 100%;
+  color: white;
+  background: red;
+  rotate: 0deg;
+  font-size: 26px;
+  cursor: pointer;
+}
+}
+
+.minttboy {
+  position: relative;
+  top: 100px;
+
+  text-align: center;
+  animation: minttboyMargin linear forwards;
+  animation-timeline: scroll(root block);
+  animation-range: 0% 10%;
+}
+
+@media (width > 800px) {
+@keyframes minttboyMargin {
+  to {
+    top: 200px;
+  }
+}
+}
+
+.sketchbook {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+  position: relative;
+  top: 200px;
+  animation: sketchbookMargin linear forwards;
+  animation-timeline: scroll(root block);
+  animation-range: 0% 10%;
+}
+
+@media (width > 800px) {
+@keyframes sketchbookMargin {
+  to {
+    top: 300px;
+  }
+}
+}
+
+.skPlaceholder {
+  background: linear-gradient(90deg, blue 50%, orangered 50%);
+  width: 400px;
+  height: 200px;
+  margin-top: 8px;
+}
+
+.dibDigitales {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  text-align: center;
+  margin-top: 360px;
+
+}
+
+.ddPlaceholder {
+  width: 150px;
+  height: 200px;
+  background: blue;
+  margin: 0 auto;
+  margin-top: 8px;
+  margin-bottom: 24px;
+}
+
+.contact {
+  text-align: center;
+}
+
+/*.sketchbooksHeader:hover,.minttboyHeader:hover,.contactHeader:hover {
+  color: white;
+  background: red;
+  width: fit-content;
+  rotate: 1deg;
+  font-size: 56px;
+  top: 4px;
+  cursor: pointer;
+}*/
+
+/*.header {
+  display: flex;
+  position: sticky;
+  height: 30px;
+  margin-bottom: 36px;
+  background-color: #1fd474;
+  color: white;
+  align-items: center;
+  font-weight: 700;
+}
+
+.header div {
+  flex-grow: 1;
+  text-align: center;
+  flex: 1;
+  cursor: pointer;
+}
+
+.header div:hover {
+  animation: resize 0.8s infinite alternate;
+}
+
+@keyframes resize {
+  to {
+    transform: scale(1.2);
+  }
+}*/
+
+</style>
+
 <script>
 
 window.addEventListener('scroll', () => {
