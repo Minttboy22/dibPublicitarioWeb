@@ -7,10 +7,16 @@
 
 <style>
 
-body {
+html {
   font-family: "play";
-  background: rgb(227, 255, 240);
+  background: rgb(4, 73, 36);
+  color: white;
   margin: 0;
+  scroll-behavior: smooth;
+}
+
+a {
+  color: white;
 }
 
 .header {
@@ -20,12 +26,22 @@ body {
   height: fit-content;
   width: 100%;
   margin-bottom: 36px;
-  background-color: #1fd474;
-  color: rgb(227, 255, 240);
+  background-color: /*#1fd474*/ transparent;
+  color: rgb(14, 141, 73);
   align-items: center;
   font-weight: 700;
   z-index: 10;
-  font-size: 36px;
+}
+
+.sketchbooksHeader,
+.minttboyHeader,
+.contactHeader {
+  color: white;
+  background-color: #1fd474;
+  font-size: 30px;
+  padding: 0 12px;
+  margin-top: 16px;
+  border-radius: 8px;
   animation: linksHeight linear forwards;
   animation-timeline: scroll(root block);
   animation-range: 0% 10%;
@@ -33,8 +49,9 @@ body {
 
 @keyframes linksHeight {
   to {
-    font-size: 24px;
-    background-color: #1fd47475;
+    font-size: 30px;
+    border-radius: 8px;
+    opacity: 50%;
   }
 }
 
@@ -42,7 +59,15 @@ body {
 .minttboyHeader:hover,
 .contactHeader:hover {
   cursor: pointer;
+  animation: idle 0.6s infinite alternate;
+}
 
+@keyframes idle {
+  to {
+    transform: scale(1.1);
+    filter: brightness(110%);
+    box-shadow: 0px 0px 15px 5px rgb(98, 230, 168);
+  }
 }
 
 .minttboy {
@@ -68,7 +93,7 @@ body {
   margin-top: 8px;
 }
 
-.container-book, .container-book2 {
+.container-book, .container-book2, .container-book3 {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -78,19 +103,23 @@ body {
 #book {
   background: transparent; /* Sin marco ni fondos grises */;
   margin-top: 160px;
+  filter: drop-shadow(-10px 20px 12px #000000);
 }
 
-#book2 {
+#book2, #book3 {
   margin-top: 50px;
+  filter: drop-shadow(-10px 20px 12px #000000);
 }
 
 .my-page, 
-.my-page2 {
+.my-page2,
+.my-page3 {
   background-color: #fff;
 }
 
 .my-page img, 
-.my-page2 img {
+.my-page2 img,
+.my-page3 img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -129,27 +158,61 @@ body {
 <body>
 
 <div class="header">
-  <div class="minttboyHeader">Minttboy</div>
-  <div class="sketchbooksHeader">Sketchbooks</div>
-  <div class="contactHeader">Contacto</div>
+  <div class="minttboyHeader"><a href="#scrollMinttboy">Minttboy</a></div>
+  <div class="sketchbooksHeader"><a href="#scrollSketchbook">Sketchbooks</a></div>
+  <div class="contactHeader"><a href="#scrollContact">Contacto</a></div>
 </div>
+<div id="scrollMinttboy"></div>
 <div class="minttboy">
   <div class="minttboyDesc">soy facu y esta es mi descripción sobre mi mismo, lo que hago y por qué soy tan capo</div>
 </div>
+<div id="scrollSketchbook"></div>
 <div class="container-book">
   <div id="book">
-    <div class="my-page"><img src="mgs3.png" alt="Portada"></div>
-    <div class="my-page"><img src="dbzbt3.png" alt="Página 2"></div>
-    <div class="my-page"><img src="kh.png" alt="Página 3"></div>
-    <div class="my-page"><img src="gtasa.png" alt="Contraportada"></div>
+    <div class="my-page">
+      <img src="https://lh3.googleusercontent.com/d/1PQRnRKaYh403GwEKNi1fh8pKsl2yZCPb" alt="Portada">
+    </div>
+    <div class="my-page">
+      <img src="https://lh3.googleusercontent.com/d/1G53zx93K20x4DCWWHX79uQeSJP0tmxn8" alt="Página 2">
+    </div>
+    <div class="my-page">
+      <img src="https://lh3.googleusercontent.com/d/1kPD90l-ut5rUlqgwTvWXMK20OGpRAjRA" alt="Página 3">
+    </div>
+    <div class="my-page">
+      <img src="https://lh3.googleusercontent.com/d/1Iq9zZPukPBqy0sQ1soNLYClTdFk9kwej" alt="Contraportada">
+    </div>
   </div>
 </div>
 <div class="container-book2">
   <div id="book2">
-    <div class="my-page2"><img src="mgs3.png" alt="Portada"></div>
-    <div class="my-page2"><img src="dbzbt3.png" alt="Página 2"></div>
-    <div class="my-page2"><img src="kh.png" alt="Página 3"></div>
-    <div class="my-page2"><img src="gtasa.png" alt="Contraportada"></div>
+    <div class="my-page2">
+      <img src="https://lh3.googleusercontent.com/d/1PQRnRKaYh403GwEKNi1fh8pKsl2yZCPb" alt="Portada">
+    </div>
+    <div class="my-page2">
+      <img src="https://lh3.googleusercontent.com/d/1G53zx93K20x4DCWWHX79uQeSJP0tmxn8" alt="Página 2">
+    </div>
+    <div class="my-page2">
+      <img src="https://lh3.googleusercontent.com/d/1kPD90l-ut5rUlqgwTvWXMK20OGpRAjRA" alt="Página 3">
+    </div>
+    <div class="my-page2">
+      <img src="https://lh3.googleusercontent.com/d/1Iq9zZPukPBqy0sQ1soNLYClTdFk9kwej" alt="Contraportada">
+    </div>
+  </div>
+</div>
+<div class="container-book3">
+  <div id="book3">
+    <div class="my-page3">
+      <img src="https://lh3.googleusercontent.com/d/1PQRnRKaYh403GwEKNi1fh8pKsl2yZCPb" alt="Portada">
+    </div>
+    <div class="my-page3">
+      <img src="https://lh3.googleusercontent.com/d/1G53zx93K20x4DCWWHX79uQeSJP0tmxn8" alt="Página 2">
+    </div>
+    <div class="my-page3">
+      <img src="https://lh3.googleusercontent.com/d/1kPD90l-ut5rUlqgwTvWXMK20OGpRAjRA" alt="Página 3">
+    </div>
+    <div class="my-page3">
+      <img src="https://lh3.googleusercontent.com/d/1Iq9zZPukPBqy0sQ1soNLYClTdFk9kwej" alt="Contraportada">
+    </div>
   </div>
 </div>
 <!--<div class="sketchbook">
@@ -180,6 +243,7 @@ body {
     <div class="ddPlaceholder"></div>
   </div>
 </div>
+<div id="scrollContact"></div>
 <div class="contact">
   <p>minttboygd@gmail.com</p>
   <p>3417 12-3002</p> <!--añadir enlace de whatsapp-->
@@ -218,6 +282,22 @@ body {
   });
 
   pageFlip.loadFromHTML(document.querySelectorAll('.my-page2'));
+});</script>
+
+<script>document.addEventListener('DOMContentLoaded', function() {
+  const pageFlip = new St.PageFlip(document.getElementById('book3'), {
+    width: 200,          // Ancho de una sola página en px
+    height: 283,         // Alto de una sola página en px
+    size: 'stretch',
+    minWidth: 150,
+    maxWidth: 300,
+    minHeight: 212,
+    maxHeight: 424,
+    maxShadowOpacity: 0,
+    showCover: true      // La primera página actúa como portada individual
+  });
+
+  pageFlip.loadFromHTML(document.querySelectorAll('.my-page3'));
 });</script>
 
 </body>
