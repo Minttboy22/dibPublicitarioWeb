@@ -1,13 +1,14 @@
 <head>
-  <link rel="stylesheet" href="dibPublicitarioWeb.css">
   <title>Minttboy's drawings</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Macondo&family=Play:wght@400;700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-
-<style>
-
-html {
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="stylesheet" href="dibPublicitarioWeb.css">
+  <style>
+    body {
   font-family: "play";
   background: rgb(4, 73, 36);
   color: white;
@@ -93,6 +94,10 @@ a {
   margin-top: 8px;
 }
 
+#carouselExample {
+  margin-top: 100px;
+}
+
 .container-book, .container-book2, .container-book3 {
   display: flex;
   justify-content: center;
@@ -100,14 +105,10 @@ a {
   padding: 20px;
 }
 
-#book {
-  background: transparent; /* Sin marco ni fondos grises */;
-  margin-top: 160px;
-  filter: drop-shadow(-10px 20px 12px #000000);
-}
-
-#book2, #book3 {
+#book ,#book2, #book3 {
+  background: transparent;
   margin-top: 50px;
+  margin-bottom: 100px;
   filter: drop-shadow(-10px 20px 12px #000000);
 }
 
@@ -115,6 +116,7 @@ a {
 .my-page2,
 .my-page3 {
   background-color: #fff;
+  overflow: hidden;
 }
 
 .my-page img, 
@@ -123,6 +125,33 @@ a {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+/* Apunta a los contenedores internos que genera la librería PageFlip */
+.stf__item {
+  overflow: hidden !important;
+}
+
+/* Páginas Izquierdas (Lado izquierdo del libro abierto / Contraportada) */
+.stf__item.--left,
+.stf__item.--left img {
+  border-radius: 12px 0px 0px 12px !important;
+  overflow: hidden;
+}
+
+/* Páginas Derechas (Portada / Lado derecho del libro abierto) */
+.stf__item.--right,
+.stf__item.--right img {
+  border-radius: 0px 12px 12px 0px !important;
+  overflow: hidden;
+}
+
+.carousel-item {
+  transition: transform 1s ease !important;
+}
+
+.carousel-control-prev-icon {
+  color: red !important;
 }
 
 .dibDigitales {
@@ -151,9 +180,7 @@ a {
   font-weight: 700;
   font-size: 20px;
 }
-
-</style>
-
+  </style>
 </head>
 <body>
 
@@ -167,7 +194,15 @@ a {
   <div class="minttboyDesc">soy facu y esta es mi descripción sobre mi mismo, lo que hago y por qué soy tan capo</div>
 </div>
 <div id="scrollSketchbook"></div>
-<div class="container-book">
+<div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <div class="container-book">
   <div id="book">
     <div class="my-page">
       <img src="https://lh3.googleusercontent.com/d/1PQRnRKaYh403GwEKNi1fh8pKsl2yZCPb" alt="Portada">
@@ -183,7 +218,9 @@ a {
     </div>
   </div>
 </div>
-<div class="container-book2">
+    </div>
+    <div class="carousel-item">
+      <div class="container-book2">
   <div id="book2">
     <div class="my-page2">
       <img src="https://lh3.googleusercontent.com/d/1PQRnRKaYh403GwEKNi1fh8pKsl2yZCPb" alt="Portada">
@@ -199,7 +236,9 @@ a {
     </div>
   </div>
 </div>
-<div class="container-book3">
+    </div>
+    <div class="carousel-item">
+      <div class="container-book3">
   <div id="book3">
     <div class="my-page3">
       <img src="https://lh3.googleusercontent.com/d/1PQRnRKaYh403GwEKNi1fh8pKsl2yZCPb" alt="Portada">
@@ -214,6 +253,17 @@ a {
       <img src="https://lh3.googleusercontent.com/d/1Iq9zZPukPBqy0sQ1soNLYClTdFk9kwej" alt="Contraportada">
     </div>
   </div>
+</div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
 </div>
 <!--<div class="sketchbook">
     <div class="sk1">
@@ -251,53 +301,53 @@ a {
   <p>minttboy</p> <!--instagram-->
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/page-flip/dist/js/page-flip.browser.js"></script>
-<script>document.addEventListener('DOMContentLoaded', function() {
-  const pageFlip = new St.PageFlip(document.getElementById('book'), {
-    width: 200,          // Ancho de una sola página en px
-    height: 283,         // Alto de una sola página en px
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const carouselEl = document.getElementById('carouselExample');
+
+  // Configuración de los 3 libros
+  const books = [
+    { id: 'book', pages: '.my-page', instance: null },
+    { id: 'book2', pages: '.my-page2', instance: null },
+    { id: 'book3', pages: '.my-page3', instance: null }
+  ];
+
+  const pageFlipOptions = {
+    width: 200,
+    height: 283,
     size: 'stretch',
     minWidth: 150,
     maxWidth: 300,
     minHeight: 212,
     maxHeight: 424,
     maxShadowOpacity: 0,
-    showCover: true      // La primera página actúa como portada individual
+    showCover: true
+  };
+
+  // Función para inicializar un libro únicamente cuando es visible
+  function loadBook(index) {
+    const book = books[index];
+    if (book && !book.instance) {
+      const container = document.getElementById(book.id);
+      if (container) {
+        book.instance = new St.PageFlip(container, pageFlipOptions);
+        book.instance.loadFromHTML(document.querySelectorAll(book.pages));
+      }
+    }
+  }
+
+  // 1. Cargar el primer libro inmediatamente (ya está visible)
+  loadBook(0);
+
+  // 2. Cargar los siguientes libros cuando el carrusel cambia de diapositiva
+  carouselEl.addEventListener('slide.bs.carousel', function(event) {
+    loadBook(event.to); // event.to indica el número de diapositiva activa (0, 1 o 2)
   });
-
-  pageFlip.loadFromHTML(document.querySelectorAll('.my-page'));
-});</script>
-
-<script>document.addEventListener('DOMContentLoaded', function() {
-  const pageFlip = new St.PageFlip(document.getElementById('book2'), {
-    width: 200,          // Ancho de una sola página en px
-    height: 283,         // Alto de una sola página en px
-    size: 'stretch',
-    minWidth: 150,
-    maxWidth: 300,
-    minHeight: 212,
-    maxHeight: 424,
-    maxShadowOpacity: 0,
-    showCover: true      // La primera página actúa como portada individual
-  });
-
-  pageFlip.loadFromHTML(document.querySelectorAll('.my-page2'));
-});</script>
-
-<script>document.addEventListener('DOMContentLoaded', function() {
-  const pageFlip = new St.PageFlip(document.getElementById('book3'), {
-    width: 200,          // Ancho de una sola página en px
-    height: 283,         // Alto de una sola página en px
-    size: 'stretch',
-    minWidth: 150,
-    maxWidth: 300,
-    minHeight: 212,
-    maxHeight: 424,
-    maxShadowOpacity: 0,
-    showCover: true      // La primera página actúa como portada individual
-  });
-
-  pageFlip.loadFromHTML(document.querySelectorAll('.my-page3'));
-});</script>
+});
+</script>
 
 </body>
