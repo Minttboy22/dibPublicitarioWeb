@@ -8,7 +8,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
   <link rel="stylesheet" href="dibPublicitarioWeb.css">
   <style>
-    body {
+body {
   font-family: "play";
   background: rgb(4, 73, 36);
   color: white;
@@ -18,6 +18,7 @@
 
 a {
   color: white;
+  text-decoration: none !important;
 }
 
 .header {
@@ -27,53 +28,80 @@ a {
   height: fit-content;
   width: 100%;
   margin-bottom: 36px;
-  background-color: /*#1fd474*/ transparent;
+  background-color: black;
   color: rgb(14, 141, 73);
   align-items: center;
   font-weight: 700;
   z-index: 10;
 }
 
-.sketchbooksHeader,
-.minttboyHeader,
-.contactHeader {
-  color: white;
-  background-color: #1fd474;
-  font-size: 30px;
-  padding: 0 12px;
-  margin-top: 16px;
-  border-radius: 8px;
-  animation: linksHeight linear forwards;
+.sketchbooksHeader {
+  width: 100%;
+  background: rgb(243, 19, 19);
+  text-align: center;
+  animation: sketchbookSize linear forwards;
   animation-timeline: scroll(root block);
-  animation-range: 0% 10%;
+  animation-range: 0% 100%;
 }
 
-@keyframes linksHeight {
-  to {
-    font-size: 30px;
-    border-radius: 8px;
-    opacity: 50%;
+@keyframes sketchbookSize {
+  0%, 25% {
+    background: rgb(243, 19, 19);
+    width: 100%; /* Empieza expandido */
+  }
+  45%, 100% {
+    background: rgb(102, 9, 9);
+    width: 33%; /* Se achica al bajar */
   }
 }
 
-.sketchbooksHeader:hover,
-.minttboyHeader:hover,
-.contactHeader:hover {
-  cursor: pointer;
-  animation: idle 0.6s infinite alternate;
+.dibDigitalesHeader {
+  width: 33%;
+  background: rgb(12, 46, 110);
+  text-align: center;
+  animation: dibDigitalesSize linear forwards;
+  animation-timeline: scroll(root block);
+  animation-range: 0% 100%;
 }
 
-@keyframes idle {
-  to {
-    transform: scale(1.1);
-    filter: brightness(110%);
-    box-shadow: 0px 0px 15px 5px rgb(98, 230, 168);
+@keyframes dibDigitalesSize {
+  0%, 25% {
+    background: rgb(12, 46, 110);
+    width: 33%; /* Inactivo al principio */
+  }
+  45%, 65% {
+    background: rgb(39, 118, 236);
+    width: 100%; /* Se expande en la sección media */
+  }
+  80%, 100% {
+    background: rgb(12, 46, 110);
+    width: 33%; /* Se vuelve a achicar al pasar a Contacto */
+  }
+}
+
+.contactHeader {
+  width: 33%;
+  background: rgb(68, 78, 9);
+  text-align: center;
+  animation: contactSize linear forwards;
+  animation-timeline: scroll(root block);
+  animation-range: 0% 100%;
+}
+
+@keyframes contactSize {
+  0%, 65% {
+    background: rgb(68, 78, 9);
+    width: 33%; /* Inactivo casi todo el trayecto */
+  }
+  85%, 100% {
+    background: rgb(15, 226, 33);
+    width: 100%; /* Se expande al llegar al final */
   }
 }
 
 .minttboy {
   position: relative;
-  top: 100px;
+  top: 50px;
   text-align: center;
 }
 
@@ -95,7 +123,8 @@ a {
 }
 
 #carouselExample {
-  margin-top: 100px;
+  margin-top: 0px;
+  margin-bottom: 200px;
 }
 
 .container-book, .container-book2, .container-book3 {
@@ -159,6 +188,7 @@ a {
   grid-template-columns: 1fr 1fr;
   text-align: center;
   margin-top: 60px;
+  margin-bottom: 200px;
 
 }
 
@@ -180,21 +210,68 @@ a {
   font-weight: 700;
   font-size: 20px;
 }
+
+/*.header {
+  display: flex;
+  position: fixed;
+  justify-content: space-evenly;
+  height: fit-content;
+  width: 100%;
+  margin-bottom: 36px;
+  background-color: transparent;
+  color: rgb(14, 141, 73);
+  align-items: center;
+  font-weight: 700;
+  z-index: 10;
+}
+
+.sketchbooksHeader,
+.dibDigitalesHeader,
+.contactHeader {
+  color: white;
+  background-color: #1fd474;
+  font-size: 30px;
+  padding: 0 12px;
+  margin-top: 16px;
+  border-radius: 8px;
+  animation: linksHeight linear forwards;
+  animation-timeline: scroll(root block);
+  animation-range: 0% 10%;
+}
+
+@keyframes linksHeight {
+  to {
+    font-size: 30px;
+    border-radius: 8px;
+    opacity: 50%;
+  }
+}
+
+.sketchbooksHeader:hover,
+.dibDigitalesHeader:hover,
+.contactHeader:hover {
+  cursor: pointer;
+  animation: idle 0.6s infinite alternate;
+}
+
+@keyframes idle {
+  to {
+    transform: scale(1.1);
+    filter: brightness(110%);
+    box-shadow: 0px 0px 15px 5px rgb(98, 230, 168);
+  }
+}*/
   </style>
 </head>
 <body>
 
 <div class="header">
-  <div class="minttboyHeader"><a href="#scrollMinttboy">Minttboy</a></div>
-  <div class="sketchbooksHeader"><a href="#scrollSketchbook">Sketchbooks</a></div>
+    <div class="sketchbooksHeader"><a href="#scrollSketchbook">Sketchbooks</a></div>
+  <div class="dibDigitalesHeader"><a href="#scrollDibDigitales">Dibujos</a></div>
   <div class="contactHeader"><a href="#scrollContact">Contacto</a></div>
 </div>
-<div id="scrollMinttboy"></div>
-<div class="minttboy">
-  <div class="minttboyDesc">soy facu y esta es mi descripción sobre mi mismo, lo que hago y por qué soy tan capo</div>
-</div>
 <div id="scrollSketchbook"></div>
-<div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+<div id="carouselExample" class="carousel slide" data-bs-ride="carousel" data-bs-touch="false">
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
     <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -265,35 +342,25 @@ a {
     <span class="visually-hidden">Next</span>
   </button>
 </div>
-<!--<div class="sketchbook">
-    <div class="sk1">
-    <div>Sketchbook1</div>
-    <div class="skPlaceholder"></div>
-  </div>-
-  <div class="sk2">
-    <div>Sketchbook2</div>
-    <div class="skPlaceholder"></div>
-  </div>
-  <div class="sk3">
-    <div>Sketchbook3</div>
-    <div class="skPlaceholder"></div>
-  </div>
-</div>-->
+<div id="scrollDibDigitales"></div>
 <div class="dibDigitales">
-  <div class="dd1">Dibujo digital 1
+  <div class="dibDigital dd1">Dibujo digital 1
     <div class="ddPlaceholder"></div>
   </div>
-  <div class="dd2">Dibujo digital 2
+  <div class="dibDigital dd2">Dibujo digital 2
     <div class="ddPlaceholder"></div>
   </div>
-  <div class="dd3">Dibujo digital 3
+  <div class="dibDigital dd3">Dibujo digital 3
     <div class="ddPlaceholder"></div>
   </div>
-  <div class="dd4">Dibujo digital 4
+  <div class="dibDigital dd4">Dibujo digital 4
     <div class="ddPlaceholder"></div>
   </div>
 </div>
 <div id="scrollContact"></div>
+<div class="minttboy">
+  <div class="minttboyDesc">soy facu y esta es mi descripción sobre mi mismo, lo que hago y por qué soy tan capo</div>
+</div>
 <div class="contact">
   <p>minttboygd@gmail.com</p>
   <p>3417 12-3002</p> <!--añadir enlace de whatsapp-->
