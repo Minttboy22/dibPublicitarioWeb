@@ -261,56 +261,51 @@ a {
   font-size: 20px;
 }
 
-/*.header {
-  display: flex;
-  position: fixed;
-  justify-content: space-evenly;
-  height: fit-content;
-  width: 100%;
-  margin-bottom: 36px;
-  background-color: transparent;
-  color: rgb(14, 141, 73);
-  align-items: center;
-  font-weight: 700;
+@media (width < 1200px) {
+  .card {
+      width: 150px;
+      height: 212.1;
+      border-radius: 10px;
+  }
+  .dibDigitales img {
+  border-radius: 10px;
+  }
+  .card:hover {
+  transform: translateY(-200px) scale(1.7);
+  box-shadow: 0px 5px 15px 0px #000000;
+  filter: brightness(100%);
   z-index: 10;
+  }
 }
 
-.sketchbooksHeader,
-.dibDigitalesHeader,
-.contactHeader {
-  color: white;
-  background-color: #1fd474;
-  font-size: 30px;
-  padding: 0 12px;
-  margin-top: 16px;
+@media (width < 768px) {
+    .card {
+      width: 100px;
+      height: 141.4px;
+      border-radius: 8px;
+  }
+  .dibDigitales img {
   border-radius: 8px;
-  animation: linksHeight linear forwards;
-  animation-timeline: scroll(root block);
-  animation-range: 0% 10%;
-}
-
-@keyframes linksHeight {
-  to {
-    font-size: 30px;
-    border-radius: 8px;
-    opacity: 50%;
+  }
+  .card:hover {
+  transform: translateY(-275px) scale(2.5);
+  box-shadow: 0px 5px 15px 0px #000000;
+  filter: brightness(100%);
+  z-index: 10;
+  }
+  .card1:hover {
+    transform: translateY(-275px) translateX(75px) scale(2.5);
+  }
+  .card2:hover {
+    transform: translateY(-275px) translateX(50px) scale(2.5);
+  }
+  .card4:hover {
+    transform: translateY(-275px) translateX(-50px) scale(2.5);
+  }
+  .card5:hover {
+    transform: translateY(-275px) translateX(-75px) scale(2.5);
   }
 }
-
-.sketchbooksHeader:hover,
-.dibDigitalesHeader:hover,
-.contactHeader:hover {
-  cursor: pointer;
-  animation: idle 0.6s infinite alternate;
-}
-
-@keyframes idle {
-  to {
-    transform: scale(1.1);
-    filter: brightness(110%);
-    box-shadow: 0px 0px 15px 5px rgb(98, 230, 168);
-  }
-}*/
   </style>
 </head>
 <body>
