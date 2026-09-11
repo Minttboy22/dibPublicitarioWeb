@@ -144,7 +144,7 @@ a {
 .my-page, 
 .my-page2,
 .my-page3 {
-  background-color: #fff;
+  background-color: transparent;
   overflow: hidden;
 }
 
@@ -268,33 +268,38 @@ a {
       border-radius: 10px;
   }
   .dibDigitales img {
-  border-radius: 10px;
+    border-radius: 10px;
   }
   .card:hover {
-  transform: translateY(-200px) scale(1.7);
-  box-shadow: 0px 5px 15px 0px #000000;
-  filter: brightness(100%);
-  z-index: 10;
+    transform: translateY(-200px) scale(1.7);
+    box-shadow: 0px 5px 15px 0px #000000;
+    filter: brightness(100%);
+    z-index: 10;
   }
 }
 
 @media (width < 768px) {
-    .card {
-      width: 100px;
-      height: 141.4px;
-      border-radius: 8px;
+  #carouselExample {
+    width: 80%;
+    position: relative;
+    right: -10%;
+  }
+  .card {
+    width: 100px;
+    height: 141.4px;
+    border-radius: 8px;
   }
   .dibDigitales img {
-  border-radius: 8px;
+    border-radius: 8px;
   }
   .card:hover {
-  transform: translateY(-275px) scale(2.5);
-  box-shadow: 0px 5px 15px 0px #000000;
-  filter: brightness(100%);
-  z-index: 10;
+    transform: translateY(-275px) scale(2.5);
+    box-shadow: 0px 5px 15px 0px #000000;
+    filter: brightness(100%);
+    z-index: 10;
   }
   .card1:hover {
-    transform: translateY(-275px) translateX(75px) scale(2.5);
+    transform: translateY(-275px) translateX(85px) scale(2.5);
   }
   .card2:hover {
     transform: translateY(-275px) translateX(50px) scale(2.5);
@@ -303,7 +308,7 @@ a {
     transform: translateY(-275px) translateX(-50px) scale(2.5);
   }
   .card5:hover {
-    transform: translateY(-275px) translateX(-75px) scale(2.5);
+    transform: translateY(-275px) translateX(-85px) scale(2.5);
   }
 }
   </style>
